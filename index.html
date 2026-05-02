@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Scrapbook</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <section class="intro" id="intro">
+      <div class="intro-card">
+        <p class="mini-text">HELLOW</p>
+        <h1>Little Notes for You</h1>
+        <p class="intro-desc">Engga penting sih, tapi siapa tau kamu mau baca.</p>
+
+        <div class="music-box">
+          <p>Playlist</p>
+
+          <div class="song-choice">
+            <button class="song-btn active" data-src="song1.m4a" data-type="audio/mp4">Yang patah tumbuh, yang hilang berganti</button>
+            <button class="song-btn" data-src="song2.mp3" data-type="audio/mpeg">Membasuh</button>
+            <button class="song-btn" data-src="song3.m4a" data-type="audio/mp4">Never say never</button>
+            <button class="song-btn" data-src="song4.m4a" data-type="audio/mp4">Iqro</button>
+          </div>
+
+          <audio id="song" controls>
+            <source id="songSource" src="song1.m4a" type="audio/mp4" />
+            Browser kamu belum support audio.
+          </audio>
+
+          <small>Aku engga tau lagu nya bagus apa engga, tapi ini menurut aku bagus wlelele.</small>
+        </div>
+
+        <button class="open-btn" id="openBook">Buka Scrapbook</button>
+      </div>
+    </section>
+
+    <section class="book-section hidden" id="bookSection">
+      <div class="top-bar">
+        <button class="nav-btn" id="prevBtn">‹ Sebelumnya</button>
+        <div class="page-count"><span id="pageNow">1</span> / <span id="pageTotal">6</span></div>
+        <button class="nav-btn" id="nextBtn">Berikutnya ›</button>
+      </div>
+
+      <div class="book" id="book">
+        <article class="page active cover-page">
+          <div class="cover-tape"></div>
+          <p class="mini-text">secukupnya</p>
+          <h4>Hay, how's your day?</h4>
+          <p>I hope it's always good. Capek ya? Istirahat dulu sebentar nanti lanjut lagi.</p>
+          <p>Setiap hari, kamu udah ngelakuin banyak hal. Aku harap semuanya selalu membawa hal positif buat kamu ya.</p>
+
+          <div class="cover-photo">
+            <img src="foto1.jpg" alt="Foto sampul">
+          </div>
+        </article>
+
+        <article class="page page-two">
+          <div class="paper-note rotate-left">
+            <h3>Hal yang kamu jalanin</h3>
+            <p>Wih, engga kerasa ya perjalannya udah sejauh ini. Nguras energi banget ya ngejalaninnya? tapi tetap kamu lanjutin kan nieh. Semoga semua yang lagi kamu jalanin sekarang sesuai yang kamu harapkan.</p>
+          </div>
+
+          <div class="polaroid rotate-right">
+            <img src="foto2.jpg" alt="Foto kenangan 1">
+            <span>𐔌՞. .՞𐦯</span>
+          </div>
+
+          <p class="caption">Kalau berhasil selamat, kalau gagal coba lagi. Tapi aku yakin berhasil sih.</p>
+        </article>
+
+        <article class="page grid-page">
+          <div class="polaroid small rotate-left">
+            <img src="foto3.jpg" alt="Foto kenangan 2">
+            <span>૮₍ ˃ ⤙ ˂ ₎ა</span>
+          </div>
+
+          <div class="paper-note rotate-right">
+            <h3>Hal kecil</h3>
+            <p>Perjalanan yang baik itu biasanya dimulai dari hal-hal kecil. Hal kecil itu mulainya dari mimpi yang besar. setiap orang punya jalannya masing-masing. So don't feel insecure about your life.</p>
+          </div>
+        </article>
+
+        <article class="page letter-page">
+          <div class="ticket">apa ya</div>
+          <h3 class="big-writing">Dear you,</h3>
+
+          <p class="letter-text">Aku engga tau sih sebenernya mau nulis apa, so terserah aku ya nulis nya apa aja hehe. Jadi mu jangan ilfil yaw sama ketikan aku di sini.</p>
+
+          <p class="letter-text">kita baru kenal juga sih sebenernya ya kan, dari awal bulan ya kan kalau engga salah tapi komunikasinya baru-baru ini. kita juga engga tau sih kedepannya gimana, pasti bakal lebih sibuk dari pada hari ini. sesibuk-sibuknya kamu harus jaga kesehatan selalu ya di sana.</p>
+
+          <p class="letter-text">Kalau ada hari nya nanti yang engga sesuai sama apa yang kamu mau, harus tetap percaya kalau semuanya bakal baik-baik aja, bakal ada yang jauh lebih baik dari pada hari ini.</p>
+
+          <p class="letter-text">Be happy selalu ya. kalau ada apa-apa cerita. Cerita ke siapapun yang kamu percaya dan nyaman buat cerita, jangan di pendem sendiri karena kamu itu engga sendirian. makasih udah ngeluangin waktu nya buat aku akhir-akhir ini.</p>
+
+          <div class="flower">✿</div>
+        </article>
+
+        <article class="page collage-page">
+          <div class="polaroid rotate-left">
+            <img src="foto5.jpg" alt="Foto kenangan 4">
+            <span>favorite</span>
+          </div>
+
+          <div class="polaroid rotate-right">
+            <img src="foto6.jpg" alt="Foto kenangan 5">
+            <span>⌯⌲</span>
+          </div>
+
+          <p class="caption">Always senyum selalu, You look way better when you smile.</p>
+        </article>
+
+        <article class="page end-page">
+          <p class="mini-text">the end</p>
+          <h2>Udah di akhir aja nih</h2>
+          <p>Semoga hal baik selalu ada di sekitar kamu ya, semangat selalu. Cuman itu yang bisa aku ucappin, fighting dengan apapun yang terjadi because u the best in your life</p>
+          <button class="open-btn" id="restartBtn">Baca Ulang</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

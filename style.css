@@ -1,0 +1,490 @@
+:root {
+  --cream: #fff4df;
+  --paper: #fffaf0;
+  --brown: #74513a;
+  --pink: #f7b8c8;
+  --rose: #d96b87;
+  --soft: #ffdfe7;
+  --shadow: rgba(92, 61, 38, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  color: var(--brown);
+  background:
+    radial-gradient(circle at top left, rgba(255, 220, 235, 0.95), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(255, 238, 191, 0.95), transparent 34%),
+    linear-gradient(135deg, #fff7e7, #ffe5ee);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.32) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.32) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.intro-card {
+  width: min(92vw, 520px);
+  padding: 34px;
+  text-align: center;
+  background: rgba(255, 250, 240, 0.86);
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 32px;
+  box-shadow: 0 24px 70px var(--shadow);
+  backdrop-filter: blur(12px);
+  animation: floatIn 0.8s ease both;
+}
+
+.mini-text {
+  margin-bottom: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose);
+}
+
+h1,
+h2,
+h3,
+.big-writing {
+  font-family: "Caveat", cursive;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 9vw, 5rem);
+  line-height: 0.9;
+}
+
+h4 {
+  font-size: clamp(1.8rem, 7vw, 3rem);
+  font-family: "Caveat", cursive;
+  margin-bottom: 10px;
+}
+
+.intro-desc {
+  margin: 18px auto 22px;
+  max-width: 380px;
+  line-height: 1.7;
+}
+
+.music-box {
+  margin: 20px 0;
+  padding: 18px;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: inset 0 0 0 2px rgba(217, 107, 135, 0.12);
+}
+
+.music-box p {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.song-choice {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.song-btn {
+  border: 0;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: #ffe5ee;
+  color: var(--brown);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.song-btn:hover {
+  transform: translateY(-2px);
+}
+
+.song-btn.active {
+  background: linear-gradient(135deg, #d96b87, #b45470);
+  color: white;
+}
+
+audio {
+  width: 100%;
+}
+
+.music-box small {
+  display: block;
+  margin-top: 8px;
+  opacity: 0.7;
+}
+
+.open-btn,
+.nav-btn {
+  border: 0;
+  color: white;
+  background: linear-gradient(135deg, #d96b87, #b45470);
+  box-shadow: 0 12px 28px rgba(217, 107, 135, 0.28);
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.open-btn {
+  margin-top: 6px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.open-btn:hover,
+.nav-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.book-section {
+  width: min(100%, 980px);
+}
+
+.top-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.nav-btn {
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.page-count {
+  min-width: 70px;
+  padding: 10px 14px;
+  text-align: center;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.75);
+  font-weight: 700;
+}
+
+.book {
+  position: relative;
+  width: min(92vw, 760px);
+  min-height: 560px;
+  margin: auto;
+  perspective: 1400px;
+}
+
+.page {
+  position: absolute;
+  inset: 0;
+  display: none;
+  padding: clamp(24px, 5vw, 46px);
+  border-radius: 18px 34px 34px 18px;
+  background:
+    linear-gradient(90deg, rgba(116, 81, 58, 0.13), transparent 8%),
+    repeating-linear-gradient(#fffaf0 0 32px, #f7ead8 33px 34px);
+  box-shadow: 0 28px 70px var(--shadow), inset 12px 0 24px rgba(116, 81, 58, 0.1);
+  transform-origin: left center;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.page::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px dashed rgba(116, 81, 58, 0.18);
+  border-radius: 14px 28px 28px 14px;
+  pointer-events: none;
+}
+
+.page.active {
+  display: block;
+  animation: turnPage 0.65s ease both;
+}
+
+.cover-page {
+  text-align: center;
+  background: linear-gradient(135deg, #ffdfe7, #fff4df);
+}
+
+.cover-page h2,
+.end-page h2 {
+  font-size: clamp(3rem, 10vw, 5.8rem);
+  line-height: 0.9;
+}
+
+.cover-page p,
+.end-page p {
+  margin: 14px auto;
+  max-width: 420px;
+  line-height: 1.7;
+}
+
+.cover-tape {
+  width: 120px;
+  height: 32px;
+  margin: 0 auto 16px;
+  background: rgba(255,255,255,0.55);
+  transform: rotate(-4deg);
+}
+
+.cover-photo {
+  width: min(72%, 280px);
+  aspect-ratio: 1 / 1;
+  margin: 24px auto 0;
+  padding: 14px 14px 42px;
+  background: #fff;
+  transform: rotate(3deg);
+  box-shadow: 0 15px 28px rgba(116,81,58,0.2);
+}
+
+.cover-photo img,
+.polaroid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* halaman 2 */
+.page-two.active {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  align-items: center;
+  gap: 24px;
+}
+
+.page-two .caption {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.paper-note {
+  width: min(100%, 360px);
+  padding: 24px;
+  border-radius: 14px;
+  background: #fff3b7;
+  box-shadow: 0 12px 22px rgba(116,81,58,0.12);
+  position: relative;
+  z-index: 2;
+}
+
+.paper-note h3 {
+  font-size: 2.3rem;
+}
+
+.paper-note p,
+.caption,
+.letter-text {
+  line-height: 1.8;
+}
+
+.polaroid {
+  width: min(100%, 300px);
+  aspect-ratio: 4 / 4.8;
+  margin: 20px auto;
+  padding: 12px 12px 46px;
+  background: white;
+  box-shadow: 0 16px 30px rgba(116,81,58,0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.polaroid span {
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: "Caveat", cursive;
+  font-size: 1.5rem;
+}
+
+.rotate-left {
+  transform: rotate(-4deg);
+}
+
+.rotate-right {
+  transform: rotate(4deg);
+}
+
+/* halaman 3 */
+.grid-page {
+  display: none;
+  grid-template-columns: 0.9fr 1fr;
+  gap: 26px;
+  align-items: center;
+}
+
+.grid-page.active {
+  display: grid;
+}
+
+.grid-page .paper-note {
+  width: 100%;
+}
+
+.polaroid.small {
+  width: min(100%, 230px);
+  margin: auto;
+}
+
+.ticket {
+  width: fit-content;
+  padding: 10px 18px;
+  border: 2px dashed var(--rose);
+  border-radius: 12px;
+  color: var(--rose);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.big-writing {
+  margin-top: 28px;
+  font-size: clamp(3rem, 10vw, 5rem);
+}
+
+.letter-text {
+  max-width: 620px;
+  margin-top: 14px;
+  font-size: 1.05rem;
+}
+
+.flower {
+  position: absolute;
+  right: 46px;
+  bottom: 38px;
+  font-size: 5rem;
+  color: var(--rose);
+  opacity: 0.5;
+}
+
+.collage-page {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.collage-page.active {
+  display: grid;
+}
+
+.collage-page .caption {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.end-page {
+  display: none;
+  place-items: center;
+  text-align: center;
+}
+
+.end-page.active {
+  display: grid;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes turnPage {
+  from {
+    opacity: 0;
+    transform: rotateY(-18deg) translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateY(0) translateX(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .app {
+    padding: 16px;
+  }
+
+  .intro-card {
+    padding: 26px 18px;
+    border-radius: 24px;
+  }
+
+  .top-bar {
+    gap: 8px;
+  }
+
+  .nav-btn {
+    padding: 10px 12px;
+    font-size: 0.82rem;
+  }
+
+  .book {
+    width: 100%;
+    min-height: 680px;
+  }
+
+  .page {
+    border-radius: 18px 24px 24px 18px;
+  }
+
+  .page-two.active,
+  .grid-page.active,
+  .collage-page.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .polaroid,
+  .polaroid.small {
+    width: min(88%, 280px);
+  }
+
+  .paper-note {
+    width: 100%;
+  }
+
+  .flower {
+    right: 24px;
+    bottom: 24px;
+    font-size: 3.8rem;
+  }
+}
